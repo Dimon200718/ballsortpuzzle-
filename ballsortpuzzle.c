@@ -149,13 +149,22 @@ void ball_sort_puzzle() {
         game_field(rows, cols, field);
 
         printf("Enter what: ");
-        scanf("%d", &x);
+        if (scanf("%d", &x) != 1) {
+            printf("Invalid input. Please enter a number.\n");
+            while (getchar() != '\n'); 
+            continue;
+        }
 
         printf("Enter where: ");
-        scanf("%d", &y);
+        if (scanf("%d", &y) != 1) {
+            printf("Invalid input. Please enter a number.\n");
+            while (getchar() != '\n'); 
+            continue;
+        }
 
         if (x == y || x < 1 || x > cols || y < 1 || y > cols) {
-            printf("Wrong column numbers!\n");
+            printf("Wrong column numbers! Try again.\n");
+            while (getchar() != '\n');
             continue;
         }
 
